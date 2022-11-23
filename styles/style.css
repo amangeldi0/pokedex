@@ -130,7 +130,7 @@
   border: 1px solid black;
   border-radius: 4px;
 }
-.header .header__container .header__navbar .header__navbar__item .header__search__button:hover:focus {
+.header .header__container .header__navbar .header__navbar__item .header__search__button:hover {
   background: #363636;
   color: white;
   transition: 0.3s;
@@ -162,7 +162,7 @@
   border: 1px solid black;
   border-radius: 4px;
 }
-.header .header__container .header__navbar .header__navbar__item .header__favourites:hover:focus {
+.header .header__container .header__navbar .header__navbar__item .header__favourites:hover {
   background: #363636;
   color: white;
   transition: 0.3s;
@@ -182,3 +182,5 @@
   width: 20px;
   height: 20px;
 }
+
+/*# sourceMappingURL=style.css.map */
