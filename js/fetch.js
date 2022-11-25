@@ -12,28 +12,24 @@ async function fetchToPokemon() {
         throw new Error(e)
     }
 }
-const detail = async (url) => {
-    try {
-        const res = await fetch(url).then(response => response.json())
-            .then(pokemon => {
-                let div = document.createElement('div')
-                div.className = "pokemon__block";
 
-                div.innerHTML = `
+const toRenderPokemon = (array, limit, page) => {
+    clearBlock('.pokemon__block')
+    array.slice(page, limit).forEach(pokemon => {
+        const {front__img, name, height, types, weight, stats, id} = pokemon
+        let div = document.createElement('div')
+        div.className = "pokemon__block";
+        div.innerHTML = `
                 <div class="pokemon__image">
-                    <img src=${pokemon.sprites['front_default']} alt="pokemon">
+                    <img src=${front__img} alt="pokemon">
                 </div>
-                <div class="pokemon__name">${pokemon.name}</div>
-                <div class='pokemon__types ${pokemon.types[0].type.name}'>${pokemon.types[0].type.name}</div>
+                <div class="pokemon__name">${name}</div>
+                <div class='pokemon__types ${types}'>${types}</div>
                 <button class="pokemon__add__favorite">
                     <img src="./assets/favourite__icon.png" alt="favourite__icon">
                 </button>`;
-                pokemonContainer.append(div)
-
-            })
-    } catch (e) {
-        throw new Error(e)
-    }
+        pokemonContainer.append(div)
+    })
 }
 const fetchToWithoutOffset = async () => {
     try {
