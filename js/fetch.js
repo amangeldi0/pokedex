@@ -1,11 +1,13 @@
 const pokemonContainer = document.querySelector('#pokemon__container')
 const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
 
+const allUrl = 'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'
+const pokemonToLocalHost = []
 
-async function fetchToPokemon(url, offset, limit) {
+async function fetchToPokemon() {
     try{
-        const res = await fetch(`${url}?offset=${offset}&limit=${limit}`).then(res => res.json())
-        res.results.forEach(pokemon => detail(pokemon.url))
+        const res = await fetch(allUrl).then(res => res.json())
+        res.results.forEach(pokemon => toLocalHost(pokemon.url))
 
     }catch (e) {
         throw new Error(e)
