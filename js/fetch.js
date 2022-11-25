@@ -34,3 +34,11 @@ const detail = async (url) => {
         throw new Error(e)
     }
 }
+const fetchToWithoutOffset = async () => {
+    try {
+        const resAllPok = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0').then(res => res.json())
+        await localStorage.setItem('pokeapi', JSON.stringify(resAllPok.results))
+    }catch (e) {
+        throw new Error()
+    }
+}
