@@ -70,7 +70,4 @@ const fetchToWithoutOffset = async () => {
         throw new Error()
     }
 }
-const clearBlock = (selector) => {
-    return document.querySelectorAll(`${selector}`)
-        .forEach(block => block.remove())
-}
+
