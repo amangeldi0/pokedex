@@ -16,33 +16,16 @@ searchInputBlock.addEventListener('keyup', event => {
     const filtered = JSON.parse(localStorage.getItem('allPokemons')).filter(item => {
         return item.name.toLowerCase().includes(event.target.value.toLowerCase())
     })
-    if (event.target.value.length !== 0){
-        if (event.key === 'Enter'){
-            clearBlock('.pagination-number')
-            getPaginationNumbers(filtered.length, paginationLimit)
+    clearBlock('.pagination-number')
+    getPaginationNumbers(filtered.length, paginationLimit)
+    clearBlock('.pokemon__block')
+    toRenderPokemon(filtered, 20, 0)
+
+    document.querySelectorAll('.pagination-number').forEach(button => {
+        const page = Number(button.getAttribute('page-index'))
+        button.addEventListener('click', event => {
             clearBlock('.pokemon__block')
-            filtered.slice(0, paginationLimit).forEach(pokemon => detail(pokemon.url))
-            document.querySelectorAll('.pagination-number').forEach(button => {
-                const page = Number(button.getAttribute('page-index'))
-                button.addEventListener('click', event => {
-                    clearBlock('.pokemon__block')
-                    filtered
-                        .slice(paginationLimit * (page - 1), paginationLimit * page)
-                        .forEach(pokemon => detail(pokemon.url))
-
-                })
-            })
-        }
-    }else {
-        if(event.key === 'Enter'){
-            clearBlock('.pagination-number')
-            clearBlock('.pokemon__block')
-            getPaginationNumbers(pokemonCount, paginationLimit)
-            JSON.parse(localStorage.getItem('pokeapi'))
-                .slice(0, 20)
-                .forEach(pokemon => detail(pokemon.url))
-
-        }
-
-    }
+            toRenderPokemon(filtered, paginationLimit * page, paginationLimit * (page - 1))
+        })
+    })
 })
