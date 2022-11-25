@@ -31,6 +31,37 @@ const toRenderPokemon = (array, limit, page) => {
         pokemonContainer.append(div)
     })
 }
+
+const toLocalHost = async (url) => {
+    try {
+        const res = await fetch(url).then(response => response.json())
+            .then(pokemon => {
+                const pokemonObj = {
+                    id: pokemon.id,
+                    front__img: pokemon.sprites.front_default,
+                    back__img: pokemon.sprites.back_default,
+                    name: pokemon.name,
+                    height: pokemon.height,
+                    weight: pokemon.weight,
+                    stats: {
+                        hp: Math.floor(pokemon.stats[0].base_stat),
+                        attack: Math.floor(pokemon.stats[1].base_stat),
+                        defense: Math.floor(pokemon.stats[2].base_stat),
+                        speed: Math.floor(pokemon.stats[5].base_stat)
+                    },
+                    types: pokemon.types[0].type.name
+                }
+                pokemonToLocalHost.push(pokemonObj)
+                localStorage.setItem('allPokemons', JSON.stringify(pokemonToLocalHost))
+            }).then(() => window.location.reload())
+    } catch (e) {
+        throw new Error(e)
+    }
+}
+
+
+
+
 const fetchToWithoutOffset = async () => {
     try {
         const resAllPok = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0').then(res => res.json())
