@@ -11,6 +11,10 @@ window.addEventListener("load", () => {
     if (local === null){
         fetchToWithoutOffset()
     }
+    if (localPokemon === null){
+        fetchToPokemon()
+    }
+
     document.querySelectorAll('.pagination-number').forEach(button => {
         const page = Number(button.getAttribute('page-index'))
         button.addEventListener('click', event => {
