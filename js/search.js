@@ -12,8 +12,8 @@ searchButton.addEventListener('click', (event) => {
     })
 })
 
-searchInputBlock.addEventListener('keypress', event => {
-    const filtered = JSON.parse(localStorage.getItem('pokeapi')).filter(item => {
+searchInputBlock.addEventListener('keyup', event => {
+    const filtered = JSON.parse(localStorage.getItem('allPokemons')).filter(item => {
         return item.name.toLowerCase().includes(event.target.value.toLowerCase())
     })
     if (event.target.value.length !== 0){
