@@ -1,14 +1,18 @@
-const searchButton = document.querySelector('#header__search__button')
-const searchInputBlock = document.querySelector('#header__search__input__block')
+window.addEventListener("load", () => {
+    fetchToPokemon(baseUrl, 0, paginationLimit)
+    const local = localStorage.getItem('pokeapi')
+    if (local == null){
+        fetchToWithoutOffset()
+    }
+    document.querySelectorAll('.pagination-number').forEach(button => {
+        const page = Number(button.getAttribute('page-index'))
+        button.addEventListener('click', event => {
+            clearBlock('.pokemon__block')
+            JSON.parse(localStorage.getItem('pokeapi'))
+                .slice(paginationLimit * (page - 1), paginationLimit * page)
+                .forEach(pokemon => detail(pokemon.url))
 
-searchButton.addEventListener('click', (event) => {
-    searchInputBlock.classList.toggle('active')
-    searchButton.classList.toggle('active')
-    window.addEventListener('click' , event => {
-        if (!event.target.closest('#header__search__button') && !event.target.closest('#header__search__input__block')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
-            searchInputBlock.classList.remove('active')
-            searchButton.classList.remove('active')
-        }
+        })
     })
 });
 document.querySelector('.header__logo').addEventListener('click', () => {
