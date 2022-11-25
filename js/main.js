@@ -3,7 +3,6 @@ const clearBlock = (selector) => {
         .forEach(block => block.remove())
 }
 window.addEventListener("load", () => {
-    fetchToPokemon(baseUrl, 0, paginationLimit)
     const local = localStorage.getItem('pokeapi')
     const localPokemon = localStorage.getItem('allPokemons')
     const array = JSON.parse(localStorage.getItem('allPokemons'))
