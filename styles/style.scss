@@ -166,7 +166,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
     width: 70%;
     .pokemon__block{
       width: 220px;
@@ -182,7 +182,8 @@
       position: relative;
       &:hover{
         transform: translateY(-3%);
-        transition: .2s;
+        transition: .4s ease-out;
+        cursor: pointer;
       }
       .pokemon__image{
         height: 180px;
@@ -196,8 +197,21 @@
         text-transform: capitalize;
         font-family: 'Secular One', sans-serif;
         font-size: 18px;
+        &:hover{
+          cursor: text;
+        }
       }
       .pokemon__types{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        height: 30px;
+        width: 70px;
+        color: white;
+        &:hover{
+          cursor: text;
+        }
 
       }
       .pokemon__add__favorite{
