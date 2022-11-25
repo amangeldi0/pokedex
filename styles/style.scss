@@ -46,6 +46,7 @@
           gap: 5px;
         }
         .header__logo{
+          cursor: pointer;
           img{
             width: 82%;
             @media (max-width: 600px) {
