@@ -33,5 +33,16 @@ searchInputBlock.addEventListener('keypress', event => {
                 })
             })
         }
+    }else {
+        if(event.key === 'Enter'){
+            clearBlock('.pagination-number')
+            clearBlock('.pokemon__block')
+            getPaginationNumbers(pokemonCount, paginationLimit)
+            JSON.parse(localStorage.getItem('pokeapi'))
+                .slice(0, 20)
+                .forEach(pokemon => detail(pokemon.url))
+
+        }
+
     }
 })
