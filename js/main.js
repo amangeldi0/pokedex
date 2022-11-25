@@ -5,7 +5,10 @@ const clearBlock = (selector) => {
 window.addEventListener("load", () => {
     fetchToPokemon(baseUrl, 0, paginationLimit)
     const local = localStorage.getItem('pokeapi')
-    if (local == null){
+    const localPokemon = localStorage.getItem('allPokemons')
+    const array = JSON.parse(localStorage.getItem('allPokemons'))
+
+    if (local === null){
         fetchToWithoutOffset()
     }
     document.querySelectorAll('.pagination-number').forEach(button => {
