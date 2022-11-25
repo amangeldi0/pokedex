@@ -1,5 +1,4 @@
 const pokemonContainer = document.querySelector('#pokemon__container')
-const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
 
 const allUrl = 'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'
 const pokemonToLocalHost = []
