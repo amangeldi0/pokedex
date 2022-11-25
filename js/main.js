@@ -1,3 +1,7 @@
+const clearBlock = (selector) => {
+    return document.querySelectorAll(`${selector}`)
+        .forEach(block => block.remove())
+}
 window.addEventListener("load", () => {
     fetchToPokemon(baseUrl, 0, paginationLimit)
     const local = localStorage.getItem('pokeapi')
