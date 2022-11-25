@@ -25,6 +25,9 @@ window.addEventListener("load", () => {
 
         })
     })
+
+    toRenderPokemon(array, 20, 0)
+
 });
 document.querySelector('.header__logo').addEventListener('click', () => {
     location.reload()
