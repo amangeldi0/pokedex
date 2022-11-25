@@ -10,4 +10,7 @@ searchButton.addEventListener('click', (event) => {
             searchButton.classList.remove('active')
         }
     })
+});
+document.querySelector('.header__logo').addEventListener('click', () => {
+    location.reload()
 })
