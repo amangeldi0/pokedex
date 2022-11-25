@@ -18,11 +18,7 @@ window.addEventListener("load", () => {
     document.querySelectorAll('.pagination-number').forEach(button => {
         const page = Number(button.getAttribute('page-index'))
         button.addEventListener('click', event => {
-            clearBlock('.pokemon__block')
-            JSON.parse(localStorage.getItem('pokeapi'))
-                .slice(paginationLimit * (page - 1), paginationLimit * page)
-                .forEach(pokemon => detail(pokemon.url))
-
+            toRenderPokemon(array, paginationLimit * page, paginationLimit * (page - 1))
         })
     })
 
