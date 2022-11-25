@@ -1,9 +1,8 @@
 
 const paginationButtons = document.querySelector('#pagination__buttons')
-
+const pokemonCount = JSON.parse(localStorage.getItem('allPokemons')).length
 let currentPage = 1
 let paginationLimit = 20
-let pokemonCount = 1154
 const pageCount = Math.ceil(pokemonCount / paginationLimit);
 
 
