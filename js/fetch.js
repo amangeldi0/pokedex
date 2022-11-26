@@ -37,6 +37,7 @@ const toRenderPokemon = (array, limit, page) => {
                 </div>  
                 `;
             pokemonContainer.append(div)
+            div.addEventListener('click', () => renderToSideBar(pokemon))
         })
     }else{
         let div = document.createElement('div')
