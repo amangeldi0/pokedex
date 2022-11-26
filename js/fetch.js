@@ -15,11 +15,13 @@ async function fetchToPokemon() {
 
 const toRenderPokemon = (array, limit, page) => {
     clearBlock('.pokemon__block')
-    array.slice(page, limit).forEach(pokemon => {
-        const {front__img, name, height, types, weight, stats, id} = pokemon
-        let div = document.createElement('div')
-        div.className = "pokemon__block";
-        div.innerHTML = `
+    clearBlock('.pokemon__block__error')
+    if (array.length !== 0){
+        array.slice(page, limit).forEach(pokemon => {
+            const {front__img, name, height, types, weight, stats, id} = pokemon
+            let div = document.createElement('div')
+            div.className = "pokemon__block";
+            div.innerHTML = `
                 <div class="pokemon__image">
                     <img src=${front__img} alt="pokemon">
                 </div>
