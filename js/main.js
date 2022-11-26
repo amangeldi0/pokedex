@@ -18,6 +18,10 @@ window.addEventListener("load", () => {
         const page = Number(button.getAttribute('page-index'))
         button.addEventListener('click', event => {
             toRenderPokemon(array, paginationLimit * page, paginationLimit * (page - 1))
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
         })
     })
 
