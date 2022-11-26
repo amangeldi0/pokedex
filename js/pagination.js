@@ -16,7 +16,6 @@ const appendPageNumber = (index) => {
 
 const getPaginationNumbers = (pokemon, pgLimit) => {
     const result = Math.ceil(pokemon / pgLimit);
-    console.log(result)
     for (let i = 1; i <= result; i++) {
         appendPageNumber(i);
     }
