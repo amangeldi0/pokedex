@@ -51,6 +51,17 @@ const toLocalHost = async (url) => {
     try {
         const res = await fetch(url).then(response => response.json())
             .then(pokemon => {
+                let type
+                if (pokemon.types.length === 2){
+                    type = {
+                        firstType: pokemon.types[0].type.name,
+                        secondType: pokemon.types[1].type.name,
+                    }
+                }else{
+                    type = {
+                        firstType: pokemon.types[0].type.name,
+                    }
+                }
                 const pokemonObj = {
                     id: pokemon.id,
                     front__img: pokemon.sprites.front_default,
