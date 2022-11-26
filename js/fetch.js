@@ -23,7 +23,9 @@ const toRenderPokemon = (array, limit, page) => {
             div.className = "pokemon__block";
             div.innerHTML = `
                 <div class="pokemon__image">
-                    <img src=${front__img} alt="pokemon">
+                    ${front__img === null
+                ? '<div class="image__error">Sorry but this Pokemon doesnt have an image</div>'
+                : `<img src=${front__img} alt="pokemon">`}
                 </div>
                 <div class="pokemon__name">${name}</div>
                 <div class='pokemon__types ${types}'>${types}</div>
