@@ -31,9 +31,19 @@ const toRenderPokemon = (array, limit, page) => {
                 <div class='pokemon__types ${types}'>${types}</div>
                 <button class="pokemon__add__favorite">
                     <img src="./assets/favourite__icon.png" alt="favourite__icon">
-                </button>`;
-        pokemonContainer.append(div)
-    })
+                </button> 
+                <div class="hover">
+                
+                </div>  
+                `;
+            pokemonContainer.append(div)
+        })
+    }else{
+        let div = document.createElement('div')
+        div.className = "pokemon__block__error";
+        div.innerHTML = `Sorry there is no such Pokemon`
+        document.querySelector('.pokemon').append(div)
+    }
 }
 
 const toLocalHost = async (url) => {
