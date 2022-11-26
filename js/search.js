@@ -15,7 +15,7 @@ searchButton.addEventListener('click', (event) => {
     })
 })
 
-searchInputBlock.addEventListener('keyup', event => {
+searchInputBlock.addEventListener('input', event => {
     const filtered = JSON.parse(localStorage.getItem('allPokemons')).filter(item => {
         return item.name.toLowerCase().includes(event.target.value.toLowerCase())
     })
@@ -23,12 +23,15 @@ searchInputBlock.addEventListener('keyup', event => {
     getPaginationNumbers(filtered.length, paginationLimit)
     clearBlock('.pokemon__block')
     toRenderPokemon(filtered, 20, 0)
-
     document.querySelectorAll('.pagination-number').forEach(button => {
         const page = Number(button.getAttribute('page-index'))
         button.addEventListener('click', event => {
             clearBlock('.pokemon__block')
             toRenderPokemon(filtered, paginationLimit * page, paginationLimit * (page - 1))
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
         })
     })
 })
