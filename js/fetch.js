@@ -65,7 +65,7 @@ const toLocalHost = async (url) => {
                 const pokemonObj = {
                     id: pokemon.id,
                     front__img: pokemon.sprites.front_default,
-                    back__img: pokemon.sprites.back_default,
+                    baseXP: pokemon.base_experience,
                     name: pokemon.name,
                     height: pokemon.height,
                     weight: pokemon.weight,
@@ -75,7 +75,7 @@ const toLocalHost = async (url) => {
                         defense: Math.floor(pokemon.stats[2].base_stat),
                         speed: Math.floor(pokemon.stats[5].base_stat)
                     },
-                    types: pokemon.types[0].type.name
+                    types: type
                 }
                 pokemonToLocalHost.push(pokemonObj)
                 localStorage.setItem('allPokemons', JSON.stringify(pokemonToLocalHost))
