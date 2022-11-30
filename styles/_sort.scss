@@ -1,0 +1,44 @@
+.sort__bar{
+  .sort__bar__container{
+    padding-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    .sort{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+
+      input{
+        padding: 3px 15px;
+        width: 50px;
+        outline: none;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+        }
+      }
+      select{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 205px;
+        padding: 3px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        outline: none;
+      }
+
+    }
+    .search__button{
+      background: transparent;
+      border: 1px solid  black;
+      border-radius: 3px;
+      padding: 3px 10px;
+
+    }
+  }
+}
