@@ -1,12 +1,22 @@
-const sidebar = document.querySelector('#pokemon__sidebar')
-const sidebarContainer = document.querySelector('#pokemon__sidebar__container')
-
+// sidebar close fn
 const close = () => {
     sidebar.classList.remove('actives')
+    pokemonContainer.classList.remove('short')
+
 }
 
+// if you not tap on details so it'll close
+window.addEventListener('click' , event => {
+    if (!event.target.closest('#pokemon__sidebar__container') && !event.target.closest('.pokemon__block')) {
+        sidebar.classList.remove('actives')
+        pokemonContainer.classList.remove('short')
+    }
+})
+
+// render sidebar
 const renderToSideBar = (pokemon) => {
     sidebar.classList.add('actives')
+    pokemonContainer.classList.add('short')
     sidebarContainer.innerHTML = ''
     const pokemonBlock = document.createElement('div')
     pokemonBlock.className = 'sidebar__pokemonBlock'
@@ -17,11 +27,11 @@ const renderToSideBar = (pokemon) => {
         <div class="pokemon__header__block">
             <div class="pokemon__header__block__number">No. ${id}</div>
             <div class="pokemon__header__block__name">
-                <div class="name">${name}</div>
+                <div class="name">${name}</div>    
                 <img src="./assets/ball.png" alt="ball">
             </div>
         </div>
-        ${front__img === null ? `<div class="pokemon__error">Sorry but this Pokemon doesnt have an image</div>` : `<div class="pokemon__image"><img src=${front__img} alt=""></div>`}
+        ${front__img === null ? `<div class="pokemon__error">Sorry but this Pokemon doesn't have an image</div>` : `<div class="pokemon__image"><img src=${front__img} alt=""></div>`}
         <div class="pokemon__info__block block">
             <div class="type info ">
                 <div class="title">Type</div>
