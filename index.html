@@ -28,6 +28,31 @@
             </div>
         </div>
     </header>
+    <div class="sort__bar">
+        <div class="sort__bar__container">
+            <div class="sort__by__type sort">
+                <div class="title">Type:</div>
+                <select class="sort__by__type__select" id="sort__by__type__select">
+                    <option class="type" value="">None</option>
+                </select>
+            </div>
+            <div class="sort__by__increase sort">
+                <div class="title">Order:</div>
+                <select class="sort__by__increase__select" id="sort__by__increase__select">
+                    <option class="increase__sort" value="">None</option>
+                    <option class="increase__sort" value="incAttack">Sort by ascending attack</option>
+                    <option class="increase__sort" value="decAttack">Sort by descending attack</option>
+                    <option class="increase__sort" value="incWeight">Sort by ascending weight</option>
+                    <option class="increase__sort" value="decWeight">Sort by descending weight</option>
+                </select>
+            </div>
+            <div class="sort__by__limit sort">
+                <div class="title">Per page:</div>
+                <input class="limit" value="20" type="number" min='9' max="99" id="limitInput">
+            </div>
+            <button id="sort" class="search__button">Search</button>
+        </div>
+    </div>
     <main class="pokemon">
         <div class="pokemon__container" id="pokemon__container"></div>
         <div class="pokemon__sidebar" id="pokemon__sidebar">
@@ -37,13 +62,19 @@
     </main>
     <div class="pagination">
         <div class="pagination__container">
-            <div id="pagination__buttons" class="pagination__buttons"></div>
+            <button id="prev" class="pagination__buttons prev" disabled>prev</button>
+            <input type="text" id="pagination__input" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  maxlength="4" minlength="1" class="pagination__input">
+            <button id="next" class="pagination__buttons next">next</button>
         </div>
-
     </div>
-    <script src="./js/sidebar.js"></script>
-    <script src="./js/fetch.js"></script>
-    <script src="./js/search.js"></script>
+    <div class="hidden" id="modal">
+        <div class="favourites__modal__window">
+            <div class="favourites__modal__window__content">
+                <div class="close" id="close__modal"><img src="./assets/close.svg" alt="close"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
     <script src="./js/pagination.js"></script>
     <script src="./js/sidebar.js"></script>
     <script src="./js/modal.js"></script>
